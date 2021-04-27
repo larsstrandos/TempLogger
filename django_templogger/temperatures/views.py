@@ -3,10 +3,6 @@ from django.views import View
 
 from .models import Temp
 
-from django.views.generic import (
-    DetailView
-)
-
 class TempDetailView(View):
     template_name = 'temps/temp_detail.html'
     def get(self, request, id=None, *args, **kwargs):
@@ -18,7 +14,3 @@ class TempDetailView(View):
             context['object_list'] = obj_list
             
         return render(request, self.template_name, context)
-
-    #def get_object(self):
-     #   id_ = self.kwargs.get("id")
-      #  return get_object_or_404(Temp, id=id_)
