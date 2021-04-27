@@ -4,7 +4,9 @@
         <title>Temperature for reader </title>
     </head>
     <html>
-        <h1>Current temp: {{ object_list.0.temp }}°C</h1>
+        <h1>Sensor {{ object_list.0.sensor_id }} </h1>
+        <h2>Current temp: {{ object_list.0.temp }}°C</h2>
+        <h3>Temperatue history</h3>
         <ul>
             {% for instance in object_list %}
                 <li>{{ instance.temp }}°C - {{ instance.created_date|date:'d.m.Y H:i:s' }}</li>
