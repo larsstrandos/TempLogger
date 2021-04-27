@@ -13,12 +13,10 @@ class TempDetailView(View):
         context = {
         }
         if id is not None:
-            # Gets a list of ALL temps with the right sensor_ID
+            # Gets a list of ALL temps with the selected sensor_ID and order by created date
             obj_list = get_list_or_404(Temp.objects.order_by('-created_date'), sensor_id=id)
             context['object_list'] = obj_list
             
-
-            # Get the most current Temp form the right sensor_ID
         return render(request, self.template_name, context)
 
     #def get_object(self):
