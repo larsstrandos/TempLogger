@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Temperature for reader </title>
+        <title>Temperature for sensor {{ object_list.0.sensor_id }}</title>
     </head>
     <html>
         <h1>Sensor {{ object_list.0.sensor_id }} </h1>
         <h2>Current temp: {{ object_list.0.temp }}°C</h2>
         <h3>Temperatue history</h3>
         <ul>
-            {% for instance in object_list %}
-                <li>{{ instance.temp }}°C - {{ instance.created_date|date:'d.m.Y H:i:s' }}</li>
+            {% for instance in object_list|slice:":15" %}
+                <li>{{ instance.temp }}°C - {{ instance.created_date|date:'d.m.Y H:i:s' }}</li>    
             {% endfor %}
         </ul>
         <script>
